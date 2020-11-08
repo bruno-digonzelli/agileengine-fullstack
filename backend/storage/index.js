@@ -1,5 +1,7 @@
-const Transactions = [];
-let Balance = 0;
+const storage = {
+    transactions: [],
+    balance: 0
+};
 
 /**
  * Set balance
@@ -8,21 +10,23 @@ let Balance = 0;
  * @param {number} balance
  * @returns {number}
  */
-const setBalance = (amount, type) => {
+const setBalance = (amount, type, balance) => {
+    let newBalance;
+
     switch(type) {
         case 'credit':
-            Balance -= amount;
-            break;
+            newBalance = balance - amount;
+            return newBalance;
         case 'debit':
-            Balance += amount;
-            break;
+            newBalance = balance + amount;
+            return newBalance;
         default:
-            break;
+            return balance;
     }
 };
 
 module.exports = {
-    transactionsStorage: Transactions,
-    balanceStorage: Balance,
+    transactionsStorage: storage.transactions,
+    storage,
     setBalanceStorage: setBalance
 }

@@ -1,7 +1,7 @@
 /* eslint-disable no-console */
 const { validationResult } = require("express-validator");
 const { v4: uuidv4 } = require('uuid');
-const { transactionsStorage, balanceStorage, setBalanceStorage } = require('../storage');
+const { transactionsStorage, setBalanceStorage, storage } = require('../storage');
 
 /**
  * Fetch transaction history
@@ -28,10 +28,8 @@ exports.postTransaction = async(req, res) => {
         return res.status(400).send({errors: errors.array()});
     }
 
-    console.log({balanceStorage, amount})
-
     if(type === 'credit') {
-        if((balanceStorage - amount) < 0) {
+        if((storage.balance - amount) < 0) {
             return res.status(400).send('Balance is negative.')
         }
     }
@@ -45,7 +43,9 @@ exports.postTransaction = async(req, res) => {
 
         transactionsStorage.push(transaction);
 
-        setBalanceStorage(amount, type, balanceStorage);
+        storage.balance = setBalanceStorage(amount, type, storage.balance);
+
+        console.log(storage.balance)
 
         return res.send(transaction);
 
