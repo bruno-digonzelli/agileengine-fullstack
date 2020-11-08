@@ -1,6 +1,6 @@
 const express = require('express');
-const routes = require('./routes');
 const cors = require('cors');
+const routes = require('./routes');
 
 // Create server
 const app = express();
@@ -17,5 +17,6 @@ routes(app);
 const port = process.env.PORT || 5000;
 
 app.listen(port, '0.0.0.0', () => {
+    // eslint-disable-next-line no-console
     console.log(`Server is running on port ${port}`);
 })
