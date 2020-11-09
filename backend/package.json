@@ -5,14 +5,15 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon ."
+    "dev": "nodemon .",
+    "full": "npm install && npm start",
+    "fulldev": "npm install && npm run dev"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "async-mutex": "^0.2.4",
-    "axios": "^0.21.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
