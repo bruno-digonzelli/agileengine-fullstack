@@ -1,0 +1,20 @@
+// Element: Button
+.btn {
+  padding: rem(13);
+  font-size: rem(16);
+  line-height: 1;
+  text-align: center;
+  border-radius: rem(5);
+  background-color: $white;
+  color: $primary-color;
+  font-weight: $bold;
+
+  // Hover
+  &:hover,
+  &:focus,
+  &:active {
+  color: $primary-color;
+
+    background-color: #f4f4f4;
+  }
+}
