@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon ."
+    "dev": "nodemon .",
+    "full": "npm install && npm start",
+    "fulldev": "npm install && npm run dev"
   },
   "keywords": [],
   "author": "",
