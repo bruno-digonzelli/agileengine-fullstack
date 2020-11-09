@@ -10,16 +10,17 @@ const AccordionItem = ({type, id, amount, effectiveDate}) => {
     const [active, setActive] = useState(false);
     const [height, setHeight] = useState("0px");
 
-    // Handlers
-    const handleAccordion = () => {
-        setActive(prev => !prev);
-    }
-
+    // - LayoutEffect
     useLayoutEffect(() => {
         setHeight(
             active ? `${accordionContent.current.scrollHeight}px` : '0px'
         );        
     }, [active])
+
+    // Handlers
+    const handleAccordion = () => {
+        setActive(prev => !prev);
+    }
 
     return ( 
         <div

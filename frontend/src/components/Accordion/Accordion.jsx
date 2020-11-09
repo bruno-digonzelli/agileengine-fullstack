@@ -1,4 +1,4 @@
-import React, {useEffect, useContext} from 'react'
+import React, {useEffect, useContext, useMemo} from 'react'
 import GlobalContext from '../../context/Global/globalContext';
 import AccordionItem from './AccordionItem';
 
@@ -14,11 +14,14 @@ const Accordion = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [transactions]);
 
+    // - Memo
+    const transactionsMemo = useMemo(() => transactions, [transactions]);
+
     return (
         transactions && (
         <section className="accordion align-items-center d-flex flex-column">
             {
-                transactions.map((transaction) => {
+                transactionsMemo.map((transaction) => {
                     const {type, amount, id, effectiveDate} = transaction;
 
                     return (
