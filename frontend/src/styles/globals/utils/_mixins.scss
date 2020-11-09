@@ -1,0 +1,38 @@
+@import "./variables";
+
+/* ----------- Colors ------------- */
+$colors: (
+  white: $white,
+  black: $black,
+  primary: $primary-color,
+  grey: $grey,
+  error: $error,
+);
+
+@mixin gen-props($prefix, $property) {
+  @each $color-name, $color in $colors {
+    .#{$prefix}-#{$color-name} {
+      #{$property}: $color !important;
+    }
+  }
+}
+
+@include gen-props("text", "color");
+@include gen-props("bg", "background");
+@include gen-props("border", "border-color");
+
+/* ----------- Typographies ------------- */
+$fonts: (
+  regular: $regular,
+  bold: $bold,
+);
+
+@mixin gen-props($prefix, $property) {
+  @each $font-name, $font in $fonts {
+    .#{$prefix}-#{$font-name} {
+      #{$property}: $font !important;
+    }
+  }
+}
+
+@include gen-props("f-weight", "font-weight");
