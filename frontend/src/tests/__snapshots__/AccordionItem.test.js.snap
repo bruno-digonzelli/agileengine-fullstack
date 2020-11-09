@@ -1,0 +1,180 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccordionItem Accordion renders with values 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="accordion-item   accordion-item--type-credit p-4 mb-5"
+      >
+        <div
+          class="accordion-item__header d-flex justify-content-between align-items-center"
+        >
+          <div
+            class="accordion-item__header-info d-flex justify-content-between pr-5"
+          >
+            <h2
+              class="accordion-item__header-title mr-3 text-capitalize"
+            >
+              Type: 
+              credit
+            </h2>
+            <h3>
+              Amount: 
+              13
+            </h3>
+          </div>
+          <button
+            class="accordion-item__expand btn"
+          >
+            Expand
+          </button>
+        </div>
+        <div
+          class="accordion-item__body overflow-hidden"
+          style="max-height: 0px;"
+        >
+          <ul>
+            <li
+              class="accordion-item__list mb-2"
+            >
+              Transaction Id: 
+              844b85eb-1e79-4dd8-990c-b8ad7ec09213
+            </li>
+            <li
+              class="accordion-item__list mb-2"
+            >
+              Type: 
+              credit
+            </li>
+            <li
+              class="accordion-item__list mb-2"
+            >
+              Amount: 
+              13
+            </li>
+            <li
+              class="accordion-item__list"
+            >
+              Effective Date: 
+              2020-11-09T01:44:12.431Z
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="accordion-item   accordion-item--type-credit p-4 mb-5"
+    >
+      <div
+        class="accordion-item__header d-flex justify-content-between align-items-center"
+      >
+        <div
+          class="accordion-item__header-info d-flex justify-content-between pr-5"
+        >
+          <h2
+            class="accordion-item__header-title mr-3 text-capitalize"
+          >
+            Type: 
+            credit
+          </h2>
+          <h3>
+            Amount: 
+            13
+          </h3>
+        </div>
+        <button
+          class="accordion-item__expand btn"
+        >
+          Expand
+        </button>
+      </div>
+      <div
+        class="accordion-item__body overflow-hidden"
+        style="max-height: 0px;"
+      >
+        <ul>
+          <li
+            class="accordion-item__list mb-2"
+          >
+            Transaction Id: 
+            844b85eb-1e79-4dd8-990c-b8ad7ec09213
+          </li>
+          <li
+            class="accordion-item__list mb-2"
+          >
+            Type: 
+            credit
+          </li>
+          <li
+            class="accordion-item__list mb-2"
+          >
+            Amount: 
+            13
+          </li>
+          <li
+            class="accordion-item__list"
+          >
+            Effective Date: 
+            2020-11-09T01:44:12.431Z
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
