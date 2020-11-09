@@ -26,7 +26,6 @@ const setBalance = (amount, type, balance) => {
 };
 
 module.exports = {
-    transactionsStorage: storage.transactions,
     storage,
     setBalanceStorage: setBalance
 }
