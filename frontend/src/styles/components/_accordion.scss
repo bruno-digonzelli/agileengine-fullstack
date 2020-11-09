@@ -1,4 +1,13 @@
 .accordion-item {
     width: rem(650);
     box-shadow: 0 0 rem(4) rgba($black, 0.4);
+    background-color: $debit-color;
+
+    &--type-credit {
+        background-color: $credit-color;
+    }
+
+    * {
+        color: $white;
+    }
 }
