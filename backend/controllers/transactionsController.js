@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const { validationResult } = require("express-validator");
 const { v4: uuidv4 } = require('uuid');
+const {Mutex, withTimeout} = require('async-mutex');
 const { storage, setBalanceStorage } = require('../storage');
 
 /**
@@ -38,6 +39,10 @@ exports.postTransaction = async(req, res) => {
     }
 
     try {
+        const mutexWithTimeout = withTimeout(new Mutex(), 2000, new Error('timeout'));
+
+        await mutexWithTimeout.acquire();
+
         const transaction = {
             id: uuidv4(),
             effectiveDate: new Date().toISOString(),
@@ -49,6 +54,8 @@ exports.postTransaction = async(req, res) => {
 
         // Set balance
         storage.balance = setBalanceStorage(amount, type, storage.balance);
+
+        mutexWithTimeout.release();
 
         return res.send(transaction);
 
