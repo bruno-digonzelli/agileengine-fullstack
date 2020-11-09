@@ -5,15 +5,16 @@
   line-height: 1;
   text-align: center;
   border-radius: rem(5);
-  background-color: $primary-color;
-  color: $white;
-  width: 100%;
+  background-color: $white;
+  color: $primary-color;
+  font-weight: $bold;
 
   // Hover
   &:hover,
   &:focus,
   &:active {
-    color: $white;
-    background-color: $primary-color - 25;
+  color: $primary-color;
+
+    background-color: #f4f4f4;
   }
 }

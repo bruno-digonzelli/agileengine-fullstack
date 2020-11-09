@@ -6,7 +6,8 @@ $colors: (
   black: $black,
   primary: $primary-color,
   grey: $grey,
-  error: $error,
+  credit-color: $credit-color,
+  debit-color: $debit-color
 );
 
 @mixin gen-props($prefix, $property) {

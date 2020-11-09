@@ -1,15 +1,14 @@
+import { BrowserRouter as Router, Route} from 'react-router-dom';
+import GlobalState from "./context/Global/globalState";
+import Home from "./pages/Home";
 
 function App() {
   return (
-    <div className="App">
-      <header className="d-flex justify-content-center bg-grey p-5 mb-5">
-        <h1>Agile Engine - Accounting notebook</h1>
-      </header>
-
-      <main>
-        
-      </main>
-    </div>
+      <GlobalState>
+    <Router>
+        <Route exact path="/" component={Home} />
+      </Router>
+    </GlobalState>
   );
 }
 
