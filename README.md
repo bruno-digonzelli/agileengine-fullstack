@@ -48,4 +48,4 @@ The technologies used are:
 - Added small tests for accordion render and click button. To run it, go to `frontend` folder and run `npm run test` command.
 
 ## Installation
-- Located on root folder, for dev run `npm start`. For build run `npm run build` commands on the terminal.
+- Located on root folder, for dev run `npm start`. For build run `npm run build` commands on the terminal. Both processes might take a while to finish.
