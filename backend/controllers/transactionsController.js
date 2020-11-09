@@ -1,14 +1,17 @@
 /* eslint-disable no-console */
 const { validationResult } = require("express-validator");
 const { v4: uuidv4 } = require('uuid');
-const { transactionsStorage, setBalanceStorage, storage } = require('../storage');
+const {Mutex, withTimeout} = require('async-mutex');
+const { storage, setBalanceStorage } = require('../storage');
 
 /**
  * Fetch transaction history
  */
 exports.getTransactions = async(req, res) => {
     try {
-        return res.json(transactionsStorage);
+        const { transactions } = storage;
+
+        return res.json(transactions);
     } catch (error) {
         console.error(error);
 
@@ -23,6 +26,7 @@ exports.getTransactions = async(req, res) => {
 exports.postTransaction = async(req, res) => {
     const errors = validationResult(req);
     const {type, amount} = req.body;
+    const { transactions } = storage;
 
     if(!errors.isEmpty()) {
         return res.status(400).send({errors: errors.array()});
@@ -35,17 +39,23 @@ exports.postTransaction = async(req, res) => {
     }
 
     try {
+        const mutexWithTimeout = withTimeout(new Mutex(), 2000, new Error('timeout'));
+
+        await mutexWithTimeout.acquire();
+
         const transaction = {
             id: uuidv4(),
             effectiveDate: new Date().toISOString(),
             ...req.body,
         }
 
-        transactionsStorage.push(transaction);
+        // Push transaction to storage
+        transactions.push(transaction);
 
+        // Set balance
         storage.balance = setBalanceStorage(amount, type, storage.balance);
 
-        console.log(storage.balance)
+        mutexWithTimeout.release();
 
         return res.send(transaction);
 
@@ -63,13 +73,14 @@ exports.postTransaction = async(req, res) => {
 exports.getTransaction = async(req, res) => {
     try {
         const {id} = req.params;
+        const { transactions } = storage;
         let matchTransaction;
 
         // Using for loop due to performance reasons (faster than array methods)
         // eslint-disable-next-line no-plusplus
-        for(let i = 0; i < transactionsStorage.length; i++) {
-            if(transactionsStorage[i].id === id) {
-                matchTransaction = transactionsStorage[i];
+        for(let i = 0; i < transactions.length; i++) {
+            if(transactions[i].id === id) {
+                matchTransaction = transactions[i];
                 break;
             }
         }
