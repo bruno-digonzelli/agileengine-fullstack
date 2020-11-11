@@ -12,7 +12,7 @@ const Accordion = () => {
         getTransactions();
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [transactions]);
+    }, []);
 
     // - Memo
     const transactionsMemo = useMemo(() => transactions, [transactions]);
